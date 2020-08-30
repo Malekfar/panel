@@ -1,0 +1,29 @@
+{
+    "name": "malekfar/panel",
+    "description": "it's a base panel",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Administrator",
+            "email": "admin@example.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/ui": "^2.1",
+        "spatie/laravel-permission": "^3.16",
+        "malekfar/persian-laravel-menu": "dev-master"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "malekfar\\panel\\PanelServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Malekfar\\Panel\\": "src/"
+        }
+    }
+}
