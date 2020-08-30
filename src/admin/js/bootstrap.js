@@ -1,0 +1,5 @@
+require('./vendors.bundle')
+require('./app.bundle')
+require('axios')
+require('moment')
+require('./messenger')
