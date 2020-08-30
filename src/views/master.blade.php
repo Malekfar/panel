@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('panel.partials.head')
+    @include('malekfar.panel.partials.head')
     @yield('styles')
     @stack('styles')
 </head>
 <body class="mod-bg-1 ">
 <!-- DOC: script to save and load page settings -->
-@include('panel.partials.scriptSetting')
+@include('malekfar.panel.partials.scriptSetting')
 <!-- BEGIN Page Wrapper -->
 <div class="page-wrapper">
     <div class="page-inner">
         <!-- BEGIN Left Aside -->
-    @include('panel.partials.sidebar')
+    @include('malekfar.panel.partials.sidebar')
     <!-- END Left Aside -->
         <div class="page-content-wrapper">
             <!-- BEGIN Page Header -->
-        @include('panel.partials.header')
+        @include('malekfar.panel.partials.header')
         <!-- END Page Header -->
             <!-- BEGIN Page Content -->
             <!-- the #js-page-content id is needed for some plugins to initialize -->
             <main id="js-page-content" role="main" class="page-content">
-                @include('panel.partials.breadcrumb')
+                @include('malekfar.panel.partials.breadcrumb')
                 <div class="subheader">
                     <h1 class="subheader-title">
                         <i class='subheader-icon fal fa-{{$icon}}'></i> {!! $pageName !!}
@@ -38,7 +38,7 @@
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
-                @include('panel.partials.errors')
+                @include('malekfar.panel.partials.errors')
                 @yield('content')
             </main>
             <!-- this overlay is activated only when mobile menu is triggered -->
@@ -50,12 +50,12 @@
 <!-- END Page Wrapper -->
 <!-- BEGIN Quick Menu -->
 <!-- to add more items, please make sure to change the variable '$menu-items: number;' in your _page-components-shortcut.scss -->
-@include('panel.partials.shortcutMenu')
+@include('malekfar.panel.partials.shortcutMenu')
 <!-- END Quick Menu -->
 <!-- BEGIN Messenger -->
 <!-- END Messenger -->
 <!-- BEGIN Page Settings -->
-@include('panel.partials.settings')
+@include('malekfar.panel.partials.settings')
 <!-- END Page Settings -->
 <script src="/admin/js/app.js"></script>
 <script>
