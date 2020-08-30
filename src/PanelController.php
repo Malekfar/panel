@@ -8,12 +8,12 @@ class PanelController extends Controller
 {
     public function index()
     {
-        return view('malekfar.panel.index');
+        return view('panel.index');
     }
 
     public function showLoginForm()
     {
-        return view('malekfar.panel.auth.login');
+        return view('panel.auth.login');
     }
 
     public function login(Request $request)
@@ -26,6 +26,6 @@ class PanelController extends Controller
         if(!Hash::check($request->password, $user->password))
             return redirect()->back()->withErrors(['email' => "نام کاربری یا رمز عبور صحیح نمیباشد"]);
         Auth::loginUsingId($user->id);
-        return redirect()->to(route('malekfar.panel.dashboard.index'));
+        return redirect()->to(route('panel.dashboard.index'));
     }
 }
