@@ -19,7 +19,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "malekfar\\panel\\PanelServiceProvider"
+                "Malekfar\\Panel\\PanelServiceProvider"
             ]
         }
     },
