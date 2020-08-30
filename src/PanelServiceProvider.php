@@ -18,7 +18,7 @@ class PanelServiceProvider extends ServiceProvider
             __DIR__.'/admin' => base_path('public/admin'),
         ]);
         $this->publishes([
-            __DIR__.'/Auth' => base_path('app/Http/Controllers/Panel'),
+            __DIR__.'/PanelController.php' => base_path('app/Http/Controllers/Panel'),
         ]);
         $this->publishes([
             __DIR__.'/fa' => base_path('resources/lang/fa'),
