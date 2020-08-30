@@ -15,7 +15,7 @@ class PanelServiceProvider extends ServiceProvider
             __DIR__.'/views' => base_path('resources/views/malekfar/panel'),
         ]);
         $this->publishes([
-            __DIR__.'/admin' => base_path('public'),
+            __DIR__.'/admin' => base_path('public/admin'),
         ]);
     }
 
