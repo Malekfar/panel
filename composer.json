@@ -2,6 +2,7 @@
     "name": "malekfar/panel",
     "description": "it's a base panel",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Administrator",
@@ -10,6 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "php": ">=7.0",
         "laravel/ui": "^2.1",
         "spatie/laravel-permission": "^3.16",
         "malekfar/persian-laravel-menu": "dev-master"
