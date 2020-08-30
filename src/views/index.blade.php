@@ -1,1 +1,1 @@
-@extends('malekfar.panel.master')
+@extends('panel.master')
