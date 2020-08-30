@@ -12,7 +12,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadViewsFrom(__DIR__.'/views', 'panel');
         $this->publishes([
-            __DIR__.'/views' => base_path('resources/views/malekfar/panel'),
+            __DIR__.'/views' => base_path('resources/views/panel'),
         ]);
         $this->publishes([
             __DIR__.'/admin' => base_path('public/admin'),
