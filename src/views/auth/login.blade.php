@@ -53,11 +53,11 @@
                                     <div class="form-group">
                                         <label class="form-label" for="username">{{__('auth.login.email')}}  </label>
                                         <input type="email" id="username" name="email" class="form-control form-control-lg" placeholder="{{__('auth.login.email.placeholder')}}" value="drlantern@gotbootstrap.com" required>
-                                        @error('email')
-                                        <div class="invalid-feedback" style="display:block">{{__('auth.login.email.feedback')}} </div>
+                                        @if(isset($errors) && $errors->get('email'))
+                                            <div class="invalid-feedback" style="display:block">{{__('auth.login.email.feedback')}} </div>
                                         @else
                                             <div class="help-block">{{__('auth.login.email.help')}}</div>
-                                            @enderror
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="password">{{ __('auth.password') }}</label>
