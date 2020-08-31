@@ -1,8 +1,12 @@
 <?php
 
-namespace Malekfar\Panel;
+namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PanelController extends Controller
 {
@@ -27,5 +31,16 @@ class PanelController extends Controller
             return redirect()->back()->withErrors(['email' => "نام کاربری یا رمز عبور صحیح نمیباشد"]);
         Auth::loginUsingId($user->id);
         return redirect()->to(route('panel.dashboard.index'));
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->to(route('login'));
+    }
+
+    public function menu()
+    {
+        return view('panel.menu');
     }
 }
