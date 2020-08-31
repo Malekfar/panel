@@ -5,6 +5,7 @@ run php artisan vendor:publish
 chang locale to fa in config/app.php
 
 change composer.json autoload section like below
+
    "autoload": {
         "psr-4": {
             "App\\": "app/"
