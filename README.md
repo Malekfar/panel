@@ -1,6 +1,8 @@
-php artisan vendor:publish
-chang locale to fa
-change atouloade section like below
+run php artisan vendor:publish
+
+chang locale to fa in config/app.php
+
+change composer.json autoload section like below
    "autoload": {
         "psr-4": {
             "App\\": "app/"
@@ -15,7 +17,8 @@ change atouloade section like below
         ]
     }
     
-composer dump-autoload
+run composer dump-autoload
+
 change user provider model in auth.php in config directory like below
 
     'providers' => [
