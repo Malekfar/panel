@@ -55,4 +55,5 @@ go to 127.0.0.1:8000/login
 
 email: admin@gmail.com
 password: 123456
+
 enjoy it.
