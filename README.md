@@ -39,10 +39,20 @@ change user provider model in auth.php in config directory like below
     
     
     
-  run php artisan migrate
+  php artisan migrate
   
   add these seeders call in DatabaseSeeder.php
 
 	$this->call(Panel_UserSeeder::class);
 	$this->call(Panel_MenuSeeder::class);
 	$this->call(Panel_PermissionSedder::class);
+	
+php artisan db:seed
+
+php artisan serve
+
+go to 127.0.0.1:8000/login
+
+email: admin@gmail.com
+password: 123456
+enjoy it.
