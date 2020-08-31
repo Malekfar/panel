@@ -1,3 +1,5 @@
+run composer require malekfar/panel
+
 run php artisan vendor:publish
 
 chang locale to fa in config/app.php
