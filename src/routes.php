@@ -14,8 +14,8 @@ Route::group(['prefix'  =>  'panel', 'middleware' => ['web', 'auth', \App\Http\M
 });
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/login', "App\Http\Controllers\Panel\PanelController@showLoginForm")->name('login');
-    Route::post('/login', "App\Http\Controllers\Panel\PanelController@login")->name('dashboard.login');
+    Route::get('/panel/login', "App\Http\Controllers\Panel\PanelController@showLoginForm")->name('login');
+    Route::post('/panel/login', "App\Http\Controllers\Panel\PanelController@login")->name('dashboard.login');
     Route::get('logout', "App\Http\Controllers\Panel\PanelController@logout")->name('logout');
 });
 
