@@ -5,10 +5,11 @@
     $pageName = "منو";
     $description = "";
     $title = "اطلاعات سامانه";
-    $icon = "";
+    $icon = "bars";
 @endphp
 
 @section('content')
+    <div class="row">
     @foreach(\Harimayco\Menu\Models\Menus::all() as $menu)
         <div class="col-md-6">
             <div id="files-panel" class="panel panel-collapsed">
@@ -23,7 +24,7 @@
                             <i class="fal fa-ellipsis-v"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-animated dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: top, left; top: 48px; left: 576px;">
-                            <button class="dropdown-item" data-toggle="modal" data-target="#modal-menu-create">
+                            <button class="dropdown-item" data-toggle="modal" data-target="#modal-menu-create{{$menu->id}}">
                                 افزودن آیتم منو
                             </button>
                         </div>
@@ -35,7 +36,7 @@
                             در این قسمت میتوانید منوهای مربوط به <span class="text-danger">{{$menu->name}}</span> را مدیریت نمایید.
                         </div>
                         <div class="frame-wrap">
-                            <div class="dd" id="{{$menu->id}}" name="{{$menu->name}}">
+                            <div class="dd-{{$menu->id}}" id="{{$menu->id}}" name="{{$menu->name}}">
                                 @if(\Harimayco\Menu\WMenu::get($menu->id))
                                     {!! panelTree(\Harimayco\Menu\WMenu::get($menu->id))  !!}
                                 @endif
@@ -44,7 +45,7 @@
                     </div>
                     <div class="panel-content border-faded border-left-0 border-right-0 border-bottom-0 d-flex flex-row align-items-center">
                         <div class="success-checkmark">
-                            <div class="check-icon">
+                            <div class="check-icon" id="check-{{$menu->id}}">
                                 <span class="icon-line line-tip"></span>
                                 <span class="icon-line line-long"></span>
                                 <div class="icon-circle"></div>
@@ -54,62 +55,63 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal fade example-modal-right-transparent" id="modal-menu-create" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-right modal-sm modal-transparent">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title h4 text-white">ایجاد منو</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="form-create" data-select2-id="edit-category-parent_id">
-                            <input type="text" name="id" value="{{$menu->id}}" style="display: none">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="form-label text-white">لینک منو</label>
-                                        <input type="text" name="link" required="" value="" class="form-control" placeholder="لینک مورد ...">
-                                        <div class="invalid-feedback">
-                                            وارد کردن این فیلد ضروری است
+</div>
+        <div class="modal fade example-modal-right-transparent" id="modal-menu-create{{$menu->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-right modal-sm modal-transparent">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title h4 text-white">ایجاد منو</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form-create-{{$menu->id}}" data-select2-id="edit-category-parent_id">
+                                <input type="text" name="id" value="{{$menu->id}}" style="display: none">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label text-white">لینک منو</label>
+                                            <input type="text" name="link" required="" value="" class="form-control" placeholder="لینک مورد ...">
+                                            <div class="invalid-feedback">
+                                                وارد کردن این فیلد ضروری است
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="form-label text-white">عنوان منو</label>
-                                        <input type="text" name="label" required="" class="form-control" value="" placeholder="عنوان مورد ...">
-                                        <div class="invalid-feedback">
-                                            وارد کردن این فیلد ضروری است
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label text-white">عنوان منو</label>
+                                            <input type="text" name="label" required="" class="form-control" value="" placeholder="عنوان مورد ...">
+                                            <div class="invalid-feedback">
+                                                وارد کردن این فیلد ضروری است
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="form-label text-white">آیکون منو</label>
-                                        <input type="text" name="icon" required="" class="form-control" value="" placeholder="آیکون منو ...">
-                                        <div class="invalid-feedback">
-                                            وارد کردن این فیلد ضروری است
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label text-white">آیکون منو</label>
+                                            <input type="text" name="icon" required="" class="form-control" value="" placeholder="آیکون منو ...">
+                                            <div class="invalid-feedback">
+                                                وارد کردن این فیلد ضروری است
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer" style="direction: ltr">
-                        <button type="submit" form="form-create" class="btn btn-primary waves-effect waves-themed">افزودن منو</button>
-                        <button type="button" class="btn btn-secondary waves-effect waves-themed mr-2" data-dismiss="modal">بستن</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer" style="direction: ltr">
+                            <button type="submit" form="form-create-{{$menu->id}}" class="btn btn-primary waves-effect waves-themed">افزودن منو</button>
+                            <button type="button" class="btn btn-secondary waves-effect waves-themed mr-2" data-dismiss="modal">بستن</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     @endforeach
+    </div>
     @foreach(\Harimayco\Menu\Models\MenuItems::all() as $item)
         <!-- Modal Left Transparent-->
         <div class="modal fade example-modal-right-transparent" id="modal-menu-{{$item->id}}" tabindex="-1" role="dialog" aria-hidden="true">
@@ -171,16 +173,20 @@
 @endsection
 
 @push('scripts')
+    <script src="/admin/js/jquery.nestable.js"></script>
     <script>
         var addcustommenur= '/harimayco//addcustommenu';
         var updateitemr= '/harimayco//updateitem';
         let deleteitemmenur = '/harimayco//deleteitemmenu';
+        let generatemenucontrolr= '/harimayco//generatemenucontrol';
+        window.nested = "";
 
         $("body").on('mousedown', ".edit-menu", function (e) {
             let id = $(this).attr("edit_id");
             $("#modal-menu-"+id).modal('toggle');
         })
-        $("body").on('submit', "#form-create", function (e) {
+        @foreach(\Harimayco\Menu\Models\Menus::all() as $menu)
+        $("body").on('submit', "#form-create-{{$menu->id}}", function (e) {
             e.preventDefault();
             const formData = new FormData()
             let id = $("#"+$(this).attr('id')+" input[name=id]").val();
@@ -205,6 +211,22 @@
 
             });
         })
+        $('.dd-{{$menu->id}}').nestable({
+            maxDepth: 10,
+            beforeDragStop: function(l,e, p){
+                setTimeout(() => {
+                    if(!compare(window.nested, $('.dd-{{$menu->id}}').nestable('toArray')))
+                        arrangeMenu(l.attr('id'), l.attr('name'));
+                }, 10)
+                // l is the main container
+                // e is the element that was moved
+                // p is the place where element was moved.
+            },
+            onDragStart: function(){
+                window.nested = $('.dd-{{$menu->id}}').nestable('toArray');
+            }
+        });
+        @endforeach
         $("body").on('submit', ".update-menu-form", function (e) {
             e.preventDefault();
             const formData = new FormData()
@@ -266,29 +288,10 @@
                 );
         })
 
-    </script>
-    <script src="/admin/js/jquery.nestable.js"></script>
-    <script>
-        window.nested = "";
-        let generatemenucontrolr= '/harimayco//generatemenucontrol';
-        $('.dd').nestable({
-            maxDepth: 10,
-            beforeDragStop: function(l,e, p){
-                setTimeout(() => {
-                    if(!compare(window.nested, $('.dd').nestable('toArray')))
-                        arrangeMenu(l.attr('id'), l.attr('name'));
-                }, 10)
-                // l is the main container
-                // e is the element that was moved
-                // p is the place where element was moved.
-            },
-            onDragStart: function(){
-                window.nested = $('.dd').nestable('toArray');
-            }
-        });
         function arrangeMenu(id, name)
         {
-            let array = $('.dd').nestable('toArray');
+            console.log(id)
+            let array = $(`.dd-${id}`).nestable('toArray');
             let newArray = [];
             let number = 0;
             let parent = undefined;
@@ -320,9 +323,9 @@
                 url: generatemenucontrolr,
                 data: formData,
             }).then(function(){
-                $(".check-icon").hide();
+                $(`#check-${id}`).hide();
                 setTimeout(function () {
-                    $(".check-icon").show();
+                    $(`#check-${id}`).show();
                 }, 10);
             }).catch(() => {
 
