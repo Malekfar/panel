@@ -12,7 +12,7 @@
     <div class="row">
     @foreach(\Harimayco\Menu\Models\Menus::all() as $menu)
         <div class="col-md-6">
-            <div id="files-panel" class="panel panel-collapsed">
+            <div id="files-panel-{{$menu->id}}" class="panel panel-collapsed">
                 <div class="panel-hdr">
                     <h2>
                         مدیریت منوها
@@ -36,7 +36,7 @@
                             در این قسمت میتوانید منوهای مربوط به <span class="text-danger">{{$menu->name}}</span> را مدیریت نمایید.
                         </div>
                         <div class="frame-wrap">
-                            <div class="dd-{{$menu->id}}" id="{{$menu->id}}" name="{{$menu->name}}">
+                            <div class="dd dd-{{$menu->id}}" id="{{$menu->id}}" name="{{$menu->name}}">
                                 @if(\Harimayco\Menu\WMenu::get($menu->id))
                                     {!! panelTree(\Harimayco\Menu\WMenu::get($menu->id))  !!}
                                 @endif
