@@ -1,3 +1,5 @@
+<?php
+
 Route::group(['domain' => env('APP_URL')], function () {
     Route::group(['prefix'  =>  'panel', 'middleware' => ['web', 'auth', \App\Http\Middleware\CheckPermission::class]], function () {
         Route::get('/', 'App\Http\Controllers\Panel\PanelController@index')->name('panel.dashboard.index');
