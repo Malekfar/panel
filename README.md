@@ -1,6 +1,8 @@
+config your database in .env
+
 run composer require amiranbari/panel:dev-master
 
-run php artisan vendor:publish
+run php artisan vendor:publish then insert 10 and enter
 
 chang locale to fa in config/app.php
 
@@ -37,21 +39,18 @@ change user provider model in auth.php in config directory like below
     ],
     
     
-    
-    
-  php artisan migrate
-  
-  add these seeders call in DatabaseSeeder.php
+add these seeders call in DatabaseSeeder.php
 
 	$this->call(Panel_UserSeeder::class);
 	$this->call(Panel_MenuSeeder::class);
 	$this->call(Panel_PermissionSedder::class);
 	
-php artisan db:seed
+php artisan migrate:fresh --seed
+  
 
 php artisan serve
 
-go to 127.0.0.1:8000/login
+go to 127.0.0.1:8000/panel/login
 
 email: admin@gmail.com
 password: 123456
