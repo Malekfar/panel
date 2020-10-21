@@ -19,13 +19,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Malekfar\\Panel\\PanelServiceProvider"
+                "AmirAnbari\\Panel\\PanelServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "Malekfar\\Panel\\": "src/"
+            "AmirAnbari\\Panel\\": "src/"
         }
     }
 }
