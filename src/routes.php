@@ -1,6 +1,5 @@
 <?php
 
-Route::group(['domain' => env('APP_URL')], function () {
     Route::group(['prefix'  =>  'panel', 'middleware' => ['web', 'auth', \App\Http\Middleware\CheckPermission::class]], function () {
         Route::get('/', 'App\Http\Controllers\Panel\PanelController@index')->name('panel.dashboard.index');
         Route::get('/menus', 'App\Http\Controllers\Panel\PanelController@menu')->name('panel.menu.index');
@@ -19,4 +18,3 @@ Route::group(['domain' => env('APP_URL')], function () {
         Route::post('/panel/login', "App\Http\Controllers\Panel\PanelController@login")->name('dashboard.login');
         Route::get('panel/logout', "App\Http\Controllers\Panel\PanelController@logout")->name('logout');
     });
-});
