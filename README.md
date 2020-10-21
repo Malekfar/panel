@@ -1,4 +1,4 @@
-run composer require amiranbari/panel
+run composer require amiranbari/panel:dev-master
 
 run php artisan vendor:publish
 
