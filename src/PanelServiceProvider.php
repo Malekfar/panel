@@ -1,6 +1,6 @@
 <?php
 
-namespace Malekfar\Panel;
+namespace AmirAnbari\Panel;
 
 use Illuminate\Support\ServiceProvider;
 
