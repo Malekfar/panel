@@ -37,7 +37,7 @@ class Panel_PermissionSedder extends Seeder
                 'display_name'   => "نمایش نقش",
                 'guard_name'     => "web",
             ],[
-                'name'           => "GGET-/panel/roles/{role}/edit",
+                'name'           => "GET-/panel/roles/{role}/edit",
                 'display_name'   => "فرم ویرایش نقش",
                 'guard_name'     => "web",
             ],[
