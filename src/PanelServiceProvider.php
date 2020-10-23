@@ -14,6 +14,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/controllers' => base_path('app/Http/Controllers/Panel/'),
             __DIR__.'/middleware' => base_path('app/Http/Middleware/'),
+            __DIR__.'/requests' => base_path('app/Http/Requests/'),
             __DIR__.'/commands' => base_path('app/Console/Commands/'),
             __DIR__.'/migrations' => base_path('database/migrations'),
             __DIR__.'/views' => base_path('resources/views/panel'),
