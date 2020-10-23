@@ -6,7 +6,7 @@ run php artisan vendor:publish then insert 1 and enter
 
 chang locale to fa in config/app.php
 
-change composer.json autoload section like below
+if you are using laravel7 change composer.json autoload section like below
 
    "autoload": {
         "psr-4": {
@@ -22,9 +22,20 @@ change composer.json autoload section like below
         ]
     }
     
+if you are using laravel8 change composer.json autoload section like below
+
+   "autoload": {
+           "psr-4": {
+               "App\\": "app/",
+               "Database\\Factories\\": "database/factories/",
+               "Database\\Seeders\\": "database/seeders/"
+           },
+   		"files": [ "app/Tools/helpers.php" ]
+       }   
+    
 run composer dump-autoload
 
-change user provider model in auth.php in config directory like below
+if you are using laravel7 change user provider model in auth.php in config directory like below
 
     'providers' => [
         'users' => [

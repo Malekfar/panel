@@ -16,11 +16,10 @@ Route::group(['prefix'  =>  'panel', 'middleware' => ['web', 'auth', \App\Http\M
 
 Route::group([
     'middleware' => ['web'],
-    'namespace' => 'Panel',
 ], function () {
-    Route::get('/panel/login', "PanelController@showLoginForm")->name('login');
-    Route::post('/panel/login', "PanelController@login")->name('dashboard.login');
-    Route::get('panel/logout', "PanelController@logout")->name('logout');
+    Route::get('/panel/login', "App\Http\Controllers\Panel\PanelController@showLoginForm")->name('login');
+    Route::post('/panel/login', "App\Http\Controllers\Panel\PanelController@login")->name('dashboard.login');
+    Route::get('panel/logout', "App\Http\Controllers\Panel\PanelController@logout")->name('logout');
 });
 
 
