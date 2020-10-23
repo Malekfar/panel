@@ -11,9 +11,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0",
-        "laravel/ui": "^2.1",
-        "spatie/laravel-permission": "^3.16",
+        "php": ">= 7.3",
+        "laravel/ui": "^2.4",
+        "spatie/laravel-permission": "^3.17",
         "amiranbari/persian-laravel-menu": "dev-master"
     },
     "extra": {
