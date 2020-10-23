@@ -40,11 +40,7 @@ class Panel_PermissionSeeder extends Seeder
                 'display_name'   => "نمایش نقش",
                 'guard_name'     => "web",
             ],[
-                'name'           => "GET-/panel/roles/{role}/edit",
-                'display_name'   => "فرم ویرایش نقش",
-                'guard_name'     => "web",
-            ],[
-                'name'           => "PUT-/panel/roles/{role}",
+                'name'           => "PATCH-/panel/roles/{role}",
                 'display_name'   => "ویرایش نقش",
                 'guard_name'     => "web",
             ],[
@@ -61,11 +57,11 @@ class Panel_PermissionSeeder extends Seeder
                 'guard_name'     => "web",
             ],[
                 'name'           => "POST-/panel/users/{user}/permissions",
-                'display_name'   => "دسترسی مدیران",
+                'display_name'   => "ویرایش دسترسی مدیران",
                 'guard_name'     => "web",
             ],[
                 'name'           => "POST-/panel/users/{user}/roles",
-                'display_name'   => "نقش مدیران",
+                'display_name'   => "ویرایش نقش مدیران",
                 'guard_name'     => "web",
             ],[
                 'name'           => "GET-/panel/users",
