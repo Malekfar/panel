@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\StoreRequest;
+use App\Http\Requests\Role\UpdateRequest;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -21,8 +22,12 @@ class RoleController extends Controller
         return view('panel.roles.show', compact('role', 'permissions'));
     }
 
-    public function update(StoreRequest $request, Role $role)
+    public function update(UpdateRequest $request, Role $role)
     {
+        if ($role->name != $request->title)
+            $request->validate([
+                'title' => 'unique:roles,name',
+            ]);
         $permissions = $request->input('permissions');
         $role->update([
             'name' => $request->title
