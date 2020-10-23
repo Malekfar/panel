@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\SetPermissionRequest;
+use App\Http\Requests\User\SetRoleRequest;
+use App\Http\Requests\User\StoreRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        return view('panel.users.index');
+    }
+
     public function managers()
     {
         return view('panel.users.managers.all');
@@ -17,50 +23,36 @@ class UserController extends Controller
 
     public function permissions(User $user)
     {
-        return view('panel.users.managers.show', compact('user'));
+        $permissions = Permission::all();
+        return view('panel.users.managers.show', compact('user', 'permissions'));
     }
 
-    public function setRoles(Request $request, User $user)
+    public function setRoles(SetRoleRequest $request, User $user)
     {
-        if($request->role)
-            if(Role::find($request->role))
-                $user->syncRoles($request->role);
-        return redirect()->back()->with(['success' => "ذخیره سازی نقش با موفقیت انجام شد"]);;
+        if ($request->role)
+            $user->syncRoles($request->role);
+        return redirect()->back()->with(['success' => "ذخیره سازی نقش با موفقیت انجام شد"]);
     }
 
-    public function setPermissions(Request $request, User $user)
+    public function setPermissions(SetPermissionRequest $request, User $user)
     {
-        $permissions = [];
-        foreach ($request->input() as $permission => $key)
-            if(Permission::find($permission))
-                $permissions [] = $permission;
+        $permissions = $request->input('permissions');
         $user->syncPermissions($permissions);
         return redirect()->back()->with(['success' => "ذخیره سازی نقش با موفقیت انجام شد"]);
     }
 
     public function create()
     {
-        return view('panel.users.create');
+        return view('panel.users.managers.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $this->validate($request, [
-            'name'  => 'required',
-            'email'  => 'required|email',
-            'password'  => 'required|min:8',
-        ], [
-            'name.required'     => "نام الزامی میباشد",
-            'email.required'    => "ایمیل الزامی میباشد",
-            'password.required' => "رمزعبور الزامی میباشد",
-            'password.min'      => "رمز عبور باید حداقل شامل ۸ کارکتر باشد",
-            'email.email'       => "ایمیل باید به صورت صحیح وارد شود",
-        ]);
         User::create([
-            'name'      => $request->name,
-            'email'     => $request->email,
-            'password'  => bcrypt($request->password),
-            'level'     => 1,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'level' => 1,
         ]);
         return redirect()->to(route('panel.managers'))->with(['success' => "ذخیره سازی مدیر با موفقیت انجام شد"]);
     }

@@ -23,12 +23,12 @@
         <div class="panel-container " style="">
             <div class="panel-content">
                 <form class="" id="update-form" action="{{route('users.store.permissions', ['user' => $user->id])}}" method="POST">
-                    {{ csrf_field() }}
+                    @csrf
                     <div class="row">
-                        @foreach(Spatie\Permission\Models\Permission::all() as $permission)
+                        @foreach($permissions as $permission)
                             <div class="col-3">
                                 <div class="custom-control custom-checkbox mt-2 ">
-                                    <input type="checkbox" class="custom-control-input persian-price" id="check-{{$permission->id}}" name="{{$permission->id}}" @if($user->hasPermissionTo($permission)) checked @endif>
+                                    <input type="checkbox" class="custom-control-input persian-price" id="check-{{$permission->id}}" name="permissions[]" value="{{ $permission->id }}" @if($user->hasPermissionTo($permission)) checked @endif>
                                     <label class="custom-control-label cursor-pointer" for="check-{{$permission->id}}"> {{$permission->display_name}}</label>
                                 </div>
                             </div>

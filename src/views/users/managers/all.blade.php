@@ -36,7 +36,7 @@
                             <td>{{makePersionNumber($loop->index+1)}}</td>
                             <td>{{makePersionNumber($user->name)}}</td>
                             <td>
-                                <button  class="btn btn-sm btn-outline-primary btn-icon btn-inline-block mr-1 waves-effect waves-themed" title="نمایش دادن" onclick="showUser(`{{$user->id}}`)"><i class="fal fa-eye"></i></button>
+                                <a class="btn btn-sm btn-outline-primary btn-icon btn-inline-block mr-1 waves-effect waves-themed" title="نمایش اطلاعات" onclick="showUser(`{{$user->id}}`)"><i class="fal fa-eye"></i></a>
                                 <a href="{{route('users.permissions', ['user' => $user->id])}}" class="btn btn-sm btn-outline-primary btn-icon btn-inline-block mr-1 waves-effect waves-themed" title="دسترسی ها"><i class="fal fa-lock"></i></a>
                                 {{--<a href="{{route('reject.colleague', ['user' => $user->id])}}" class="btn btn-sm btn-outline-danger btn-icon btn-inline-block mr-1 waves-effect waves-themed" title="رد همکاری"><i class="fal fa-ban"></i></a>--}}
                             </td>

@@ -25,14 +25,14 @@
                 <form class="" id="update-form" action="{{route('roles.store')}}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label class="form-label" for="simpleinputInvalid2">نام نقش</label>
-                        <input type="text" name="title" class="form-control" id="" required="" placeholder="نام نقش خود را وارد نمایید...">
+                        <label class="form-label" for="title">نام نقش</label>
+                        <input type="text" name="title" class="form-control" id="title" required="" placeholder="نام نقش خود را وارد نمایید...">
                     </div>
                     <div class="row">
-                        @foreach(Spatie\Permission\Models\Permission::all() as $permission)
+                        @foreach($permissions as $permission)
                             <div class="col-3">
                                 <div class="custom-control custom-checkbox mt-2 ">
-                                    <input type="checkbox" class="custom-control-input persian-price" id="check-{{$permission->id}}" name="permissions[{{$permission->id}}]">
+                                    <input type="checkbox" class="custom-control-input persian-price" id="check-{{$permission->id}}" name="permissions[]" value="{{ $permission->id }}">
                                     <label class="custom-control-label cursor-pointer" for="check-{{$permission->id}}"> {{$permission->display_name}}</label>
                                 </div>
                             </div>
