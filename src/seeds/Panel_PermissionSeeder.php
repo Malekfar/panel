@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Database\Seeder;
+namespace Database\Seeders;
 
-class Panel_PermissionSedder extends Seeder
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class Panel_PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +14,7 @@ class Panel_PermissionSedder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('permissions')->insert([
+        DB::table('permissions')->insert([
             [
                 'name'           => "GET-/panel",
                 'display_name'   => "داشبورد",

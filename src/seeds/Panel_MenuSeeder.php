@@ -1,6 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class Panel_MenuSeeder extends Seeder
 {
@@ -11,10 +14,10 @@ class Panel_MenuSeeder extends Seeder
      */
     public function run()
     {
-        $firstMenu = \Illuminate\Support\Facades\DB::table('admin_menus')->insertGetId([
+        $firstMenu = DB::table('admin_menus')->insertGetId([
             'name' => 'عملیات های سامانه'
         ]);
-        \Illuminate\Support\Facades\DB::table('admin_menu_items')->insert([
+        DB::table('admin_menu_items')->insert([
             'label' => 'مدیریت منوها',
             'link'  => '/panel/menus',
             'menu'  => $firstMenu,
@@ -24,7 +27,7 @@ class Panel_MenuSeeder extends Seeder
             'depth' => 0,
             'sort'  => 0,
         ]);
-        $users = \Illuminate\Support\Facades\DB::table('admin_menu_items')->insertGetId([
+        $users = DB::table('admin_menu_items')->insertGetId([
             'link'  => '/panel/users',
             'label' => 'مدیریت کاربران',
             'menu'  => $firstMenu,
@@ -34,7 +37,7 @@ class Panel_MenuSeeder extends Seeder
             'depth' => 0,
             'sort'  => 0,
         ]);
-        \Illuminate\Support\Facades\DB::table('admin_menu_items')->insertGetId([
+        DB::table('admin_menu_items')->insertGetId([
             'link' => '/panel/users',
             'label' => 'لیست کاربران',
             'menu' => $firstMenu,
@@ -44,7 +47,7 @@ class Panel_MenuSeeder extends Seeder
             'depth' => 0,
             'sort' => 0,
         ]);
-        \Illuminate\Support\Facades\DB::table('admin_menu_items')->insertGetId([
+        DB::table('admin_menu_items')->insertGetId([
             'link'  => '/panel/managers',
             'label' => 'مدیران',
             'menu'  => $firstMenu,
@@ -54,7 +57,7 @@ class Panel_MenuSeeder extends Seeder
             'depth' => 0,
             'sort'  => 1,
         ]);
-        \Illuminate\Support\Facades\DB::table('admin_menu_items')->insertGetId([
+        DB::table('admin_menu_items')->insertGetId([
             'link' => '/panel/roles',
             'label' => 'نقش ها',
             'menu' => $firstMenu,

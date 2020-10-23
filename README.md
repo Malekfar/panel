@@ -2,7 +2,7 @@ config your database in .env
 
 run composer require amiranbari/panel:dev-master
 
-run php artisan vendor:publish then insert 10 and enter
+run php artisan vendor:publish then insert 1 and enter
 
 chang locale to fa in config/app.php
 

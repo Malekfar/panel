@@ -18,7 +18,7 @@ class PanelServiceProvider extends ServiceProvider
             __DIR__.'/migrations' => base_path('database/migrations'),
             __DIR__.'/views' => base_path('resources/views/panel'),
             __DIR__.'/fa' => base_path('resources/lang/fa'),
-            __DIR__.'/seeds' => base_path('database/seeds'),
+            __DIR__.'/seeds' => base_path('database/seeders'),
             __DIR__.'/admin' => base_path('public/admin'),
             __DIR__.'/fonts' => base_path('public/fonts'),
             __DIR__.'/models' => base_path('app/Models/'),

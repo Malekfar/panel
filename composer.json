@@ -1,6 +1,6 @@
 {
     "name": "amiranbari/panel",
-    "description": "it's a base panel",
+    "description": "it's a basic Management panel",
     "type": "library",
     "license": "MIT",
     "authors": [
