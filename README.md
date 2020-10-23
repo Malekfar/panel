@@ -2,7 +2,7 @@ config your database in .env
 
 run composer require amiranbari/panel:dev-master
 
-run php artisan vendor:publish then insert 1 and enter
+run php artisan vendor:publish --force - then insert 1 and enter
 
 chang locale to fa in config/app.php
 
@@ -54,7 +54,7 @@ add these seeders call in DatabaseSeeder.php
 
 	$this->call(Panel_UserSeeder::class);
 	$this->call(Panel_MenuSeeder::class);
-	$this->call(Panel_PermissionSedder::class);
+	$this->call(Panel_PermissionSeeder::class);
 	
 php artisan migrate:fresh --seed
   
